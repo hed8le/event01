@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>...</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
+	<!-- jQuery CDN -->
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+	<!-- Lokale Library -->
+	<!-- <script type="text/javascript" src="../../libs/jquery-1.10.2/jquery-1.10.2.js"></script> -->
+</head>
+
+<body>
+	<button id="buttonday">Day</button>
+	<button>Night</button>
+	<script>
+		(function(){
+			console.log('This is a self-invoking anonymous function!');
+			console.log('Wird ausgeführt, sobald DOM geladen.');
+		})();
+
+		var b = $('button#buttonday');
+		console.log(b);
+
+		$('button').click(function(){
+			console.log('jQuery: Button was clicked.');
+			console.log(this);
+			$('link').attr('href', 'css/night.css');
+			console.log('Es folgt der Text des geklickten Buttons: ');
+			var c = $(this).text();
+			console.log(c);
+		});
+
+		var a = document.getElementById('buttonday');
+		console.log(a);
+		a.addEventListener("click", ausgabe, false);
+		function ausgabe(){
+			console.log("JavaScript: Button was clicked.");
+			console.log(a);
+			//Mitten im JavaScript-Coding kommt plötzlich jQuery-Coding.
+			$(this).text("changed");
+		}
+	</script>
+
+</body>
+
+</html>
